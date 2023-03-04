@@ -16,5 +16,5 @@ class {{class_name}}(CustomDevice):
     replacement = {
         ENDPOINTS: {
             {% include "endpoints_template.txt" %}
-        }
+        },
     }

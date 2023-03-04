@@ -8,5 +8,5 @@
                 OUTPUT_CLUSTERS: [
                     {%- for cluster in endpoint["out_clusters"] %}
                     {{cluster}},{% endfor %}
-                ] 
+                ],
             }{% endfor %}
