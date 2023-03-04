@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quirk-generator"
+version = "0.0.0"
+description = "Stub quirk generator for zha-quirks"
+urls = {repository = "https://github.com/TheJulianJES/quirk-generator"}
+authors = [
+    {name = "TheJulianJES", email = "julian.tjj@proton.me"},
+    {name = "David F. Mulcahey", email = "david.mulcahey@icloud.com"},
+]
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+dependencies = [
+    "click",
+    "jinja2",
+    "zigpy>=0.53.0",
+    "zha-quirks>=0.0.93",
+]
+
+[tool.setuptools]
+packages = ["quirk_generator"]
+
+[tool.setuptools.package-data]
+"quirk_generator.templates" = ["**"]
+
+[project.scripts]
+quirk-generator = "quirk_generator.cli:cli"
+
+[tool.ruff]
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I001"
+]
+src = ["quirk_generator"]
+
+[tool.ruff.isort]
+known-first-party = ["quirk_generator", "tests"]
