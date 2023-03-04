@@ -1,0 +1,512 @@
+{
+  "home_assistant": {
+    "installation_type": "Home Assistant OS",
+    "version": "2023.3.1",
+    "dev": false,
+    "hassio": true,
+    "virtualenv": false,
+    "python_version": "3.10.10",
+    "docker": true,
+    "arch": "x86_64",
+    "timezone": "Europe/Berlin",
+    "os_name": "Linux",
+    "os_version": "5.15.90",
+    "supervisor": "2023.03.0",
+    "host_os": "Home Assistant OS 9.5",
+    "docker_version": "20.10.22",
+    "chassis": "vm",
+    "run_as_root": true
+  },
+  "custom_components": {
+    "zha_toolkit": {
+      "version": "v0.8.36",
+      "requirements": [
+        "packaging>=20.8",
+        "pytz"
+      ]
+    },
+    "hacs": {
+      "version": "1.31.0",
+      "requirements": [
+        "aiogithubapi>=22.10.1"
+      ]
+    }
+  },
+  "integration_manifest": {
+    "domain": "zha",
+    "name": "Zigbee Home Automation",
+    "after_dependencies": [
+      "onboarding",
+      "usb"
+    ],
+    "codeowners": [
+      "@dmulcahey",
+      "@adminiuga",
+      "@puddly"
+    ],
+    "config_flow": true,
+    "dependencies": [
+      "file_upload"
+    ],
+    "documentation": "https://www.home-assistant.io/integrations/zha",
+    "iot_class": "local_polling",
+    "loggers": [
+      "aiosqlite",
+      "bellows",
+      "crccheck",
+      "pure_pcapy3",
+      "zhaquirks",
+      "zigpy",
+      "zigpy_deconz",
+      "zigpy_xbee",
+      "zigpy_zigate",
+      "zigpy_znp"
+    ],
+    "requirements": [
+      "bellows==0.34.9",
+      "pyserial==3.5",
+      "pyserial-asyncio==0.6",
+      "zha-quirks==0.0.93",
+      "zigpy-deconz==0.19.2",
+      "zigpy==0.53.2",
+      "zigpy-xbee==0.16.2",
+      "zigpy-zigate==0.10.3",
+      "zigpy-znp==0.9.3"
+    ],
+    "usb": [
+      {
+        "vid": "10C4",
+        "pid": "EA60",
+        "description": "*2652*",
+        "known_devices": [
+          "slae.sh cc2652rb stick"
+        ]
+      },
+      {
+        "vid": "1A86",
+        "pid": "55D4",
+        "description": "*sonoff*plus*",
+        "known_devices": [
+          "sonoff zigbee dongle plus v2"
+        ]
+      },
+      {
+        "vid": "10C4",
+        "pid": "EA60",
+        "description": "*sonoff*plus*",
+        "known_devices": [
+          "sonoff zigbee dongle plus"
+        ]
+      },
+      {
+        "vid": "10C4",
+        "pid": "EA60",
+        "description": "*tubeszb*",
+        "known_devices": [
+          "TubesZB Coordinator"
+        ]
+      },
+      {
+        "vid": "1A86",
+        "pid": "7523",
+        "description": "*tubeszb*",
+        "known_devices": [
+          "TubesZB Coordinator"
+        ]
+      },
+      {
+        "vid": "1A86",
+        "pid": "7523",
+        "description": "*zigstar*",
+        "known_devices": [
+          "ZigStar Coordinators"
+        ]
+      },
+      {
+        "vid": "1CF1",
+        "pid": "0030",
+        "description": "*conbee*",
+        "known_devices": [
+          "Conbee II"
+        ]
+      },
+      {
+        "vid": "10C4",
+        "pid": "8A2A",
+        "description": "*zigbee*",
+        "known_devices": [
+          "Nortek HUSBZB-1"
+        ]
+      },
+      {
+        "vid": "0403",
+        "pid": "6015",
+        "description": "*zigate*",
+        "known_devices": [
+          "ZiGate+"
+        ]
+      },
+      {
+        "vid": "10C4",
+        "pid": "EA60",
+        "description": "*zigate*",
+        "known_devices": [
+          "ZiGate"
+        ]
+      },
+      {
+        "vid": "10C4",
+        "pid": "8B34",
+        "description": "*bv 2010/10*",
+        "known_devices": [
+          "Bitron Video AV2010/10"
+        ]
+      }
+    ],
+    "zeroconf": [
+      {
+        "type": "_esphomelib._tcp.local.",
+        "name": "tube*"
+      },
+      {
+        "type": "_zigate-zigbee-gateway._tcp.local.",
+        "name": "*zigate*"
+      },
+      {
+        "type": "_zigstar_gw._tcp.local.",
+        "name": "*zigstar*"
+      },
+      {
+        "type": "_slzb-06._tcp.local.",
+        "name": "slzb-06*"
+      }
+    ],
+    "is_built_in": true
+  },
+  "data": {
+    "ieee": "**REDACTED**",
+    "nwk": 8000,
+    "manufacturer": "LUMI",
+    "model": "lumi.remote.b486opcn01",
+    "name": "LUMI lumi.remote.b486opcn01",
+    "quirk_applied": true,
+    "quirk_class": "zhaquirks.xiaomi.aqara.opple_remote.RemoteB486OPCN01V4",
+    "manufacturer_code": 4447,
+    "power_source": "Battery or Unknown",
+    "lqi": 105,
+    "rssi": null,
+    "last_seen": "2023-03-04T05:32:44",
+    "available": true,
+    "device_type": "EndDevice",
+    "signature": {
+      "node_descriptor": "NodeDescriptor(logical_type=<LogicalType.EndDevice: 2>, complex_descriptor_available=0, user_descriptor_available=0, reserved=0, aps_flags=0, frequency_band=<FrequencyBand.Freq2400MHz: 8>, mac_capability_flags=<MACCapabilityFlags.AllocateAddress: 128>, manufacturer_code=4447, maximum_buffer_size=127, maximum_incoming_transfer_size=100, server_mask=11264, maximum_outgoing_transfer_size=100, descriptor_capability_field=<DescriptorCapability.NONE: 0>, *allocate_address=True, *is_alternate_pan_coordinator=False, *is_coordinator=False, *is_end_device=True, *is_full_function_device=False, *is_mains_powered=False, *is_receiver_on_when_idle=False, *is_router=False, *is_security_capable=False)",
+      "endpoints": {
+        "1": {
+          "profile_id": 260,
+          "device_type": "0x0105",
+          "in_clusters": [
+            "0x0000",
+            "0x0001",
+            "0x0003",
+            "0x0012",
+            "0xfcc0"
+          ],
+          "out_clusters": [
+            "0x0003",
+            "0x0006",
+            "0x0008",
+            "0x0300"
+          ]
+        },
+        "2": {
+          "profile_id": 260,
+          "device_type": "0x0103",
+          "in_clusters": [
+            "0x0003",
+            "0x0012"
+          ],
+          "out_clusters": [
+            "0x0003",
+            "0x0006"
+          ]
+        },
+        "3": {
+          "profile_id": 260,
+          "device_type": "0x0103",
+          "in_clusters": [
+            "0x0012"
+          ],
+          "out_clusters": []
+        },
+        "4": {
+          "profile_id": 260,
+          "device_type": "0x0103",
+          "in_clusters": [
+            "0x0012"
+          ],
+          "out_clusters": []
+        },
+        "5": {
+          "profile_id": 260,
+          "device_type": "0x0103",
+          "in_clusters": [
+            "0x0012"
+          ],
+          "out_clusters": []
+        },
+        "6": {
+          "profile_id": 260,
+          "device_type": "0x0103",
+          "in_clusters": [
+            "0x0012"
+          ],
+          "out_clusters": []
+        }
+      }
+    },
+    "active_coordinator": false,
+    "entities": [
+      {
+        "entity_id": "button.lumi_lumi_remote_b486opcn01_abed7b3c_identify",
+        "name": "LUMI lumi.remote.b486opcn01"
+      },
+      {
+        "entity_id": "sensor.lumi_lumi_remote_power",
+        "name": "LUMI lumi.remote.b486opcn01"
+      }
+    ],
+    "neighbors": [],
+    "routes": [],
+    "endpoint_names": [
+      {
+        "name": "COLOR_DIMMER_SWITCH"
+      },
+      {
+        "name": "ON_OFF_LIGHT_SWITCH"
+      },
+      {
+        "name": "ON_OFF_LIGHT_SWITCH"
+      },
+      {
+        "name": "ON_OFF_LIGHT_SWITCH"
+      },
+      {
+        "name": "ON_OFF_LIGHT_SWITCH"
+      },
+      {
+        "name": "ON_OFF_LIGHT_SWITCH"
+      }
+    ],
+    "user_given_name": "Aqara Opple Remote",
+    "device_reg_id": "dd11b8c4850cd8afe9b101cfbe1e6932",
+    "area_id": "test",
+    "cluster_details": {
+      "1": {
+        "device_type": {
+          "name": "COLOR_DIMMER_SWITCH",
+          "id": 261
+        },
+        "profile_id": 260,
+        "in_clusters": {
+          "0x0000": {
+            "endpoint_attribute": "basic",
+            "attributes": {
+              "0x0001": {
+                "attribute_name": "app_version",
+                "value": 17
+              },
+              "0x0004": {
+                "attribute_name": "manufacturer",
+                "value": "LUMI"
+              },
+              "0x0005": {
+                "attribute_name": "model",
+                "value": "lumi.remote.b486opcn01"
+              }
+            },
+            "unsupported_attributes": {}
+          },
+          "0x0003": {
+            "endpoint_attribute": "identify",
+            "attributes": {},
+            "unsupported_attributes": {}
+          },
+          "0x0001": {
+            "endpoint_attribute": "power",
+            "attributes": {
+              "0x0020": {
+                "attribute_name": "battery_voltage",
+                "value": 30
+              },
+              "0x0021": {
+                "attribute_name": "battery_percentage_remaining",
+                "value": 200
+              },
+              "0x0031": {
+                "attribute_name": "battery_size",
+                "value": 7
+              },
+              "0x0033": {
+                "attribute_name": "battery_quantity",
+                "value": 1
+              }
+            },
+            "unsupported_attributes": {
+              "0x0021": {
+                "attribute_name": "battery_percentage_remaining"
+              }
+            }
+          },
+          "0xfcc0": {
+            "endpoint_attribute": "opple_cluster",
+            "attributes": {
+              "0x0009": {
+                "attribute_name": "mode",
+                "value": 1
+              }
+            },
+            "unsupported_attributes": {}
+          },
+          "0x0012": {
+            "endpoint_attribute": "multistate_input",
+            "attributes": {
+              "0x0055": {
+                "attribute_name": "present_value",
+                "value": 1.0
+              }
+            },
+            "unsupported_attributes": {}
+          }
+        },
+        "out_clusters": {
+          "0x0003": {
+            "endpoint_attribute": "identify",
+            "attributes": {},
+            "unsupported_attributes": {}
+          },
+          "0x0006": {
+            "endpoint_attribute": "on_off",
+            "attributes": {},
+            "unsupported_attributes": {}
+          },
+          "0x0008": {
+            "endpoint_attribute": "level",
+            "attributes": {},
+            "unsupported_attributes": {}
+          },
+          "0x0300": {
+            "endpoint_attribute": "light_color",
+            "attributes": {},
+            "unsupported_attributes": {}
+          }
+        }
+      },
+      "2": {
+        "device_type": {
+          "name": "ON_OFF_LIGHT_SWITCH",
+          "id": 259
+        },
+        "profile_id": 260,
+        "in_clusters": {
+          "0x0003": {
+            "endpoint_attribute": "identify",
+            "attributes": {},
+            "unsupported_attributes": {}
+          },
+          "0x0012": {
+            "endpoint_attribute": "multistate_input",
+            "attributes": {
+              "0x0055": {
+                "attribute_name": "present_value",
+                "value": 1.0
+              }
+            },
+            "unsupported_attributes": {}
+          }
+        },
+        "out_clusters": {
+          "0x0003": {
+            "endpoint_attribute": "identify",
+            "attributes": {},
+            "unsupported_attributes": {}
+          },
+          "0x0006": {
+            "endpoint_attribute": "on_off",
+            "attributes": {},
+            "unsupported_attributes": {}
+          }
+        }
+      },
+      "3": {
+        "device_type": {
+          "name": "ON_OFF_LIGHT_SWITCH",
+          "id": 259
+        },
+        "profile_id": 260,
+        "in_clusters": {
+          "0x0012": {
+            "endpoint_attribute": "multistate_input",
+            "attributes": {
+              "0x0055": {
+                "attribute_name": "present_value",
+                "value": 1.0
+              }
+            },
+            "unsupported_attributes": {}
+          }
+        },
+        "out_clusters": {}
+      },
+      "4": {
+        "device_type": {
+          "name": "ON_OFF_LIGHT_SWITCH",
+          "id": 259
+        },
+        "profile_id": 260,
+        "in_clusters": {
+          "0x0012": {
+            "endpoint_attribute": "multistate_input",
+            "attributes": {
+              "0x0055": {
+                "attribute_name": "present_value",
+                "value": 1.0
+              }
+            },
+            "unsupported_attributes": {}
+          }
+        },
+        "out_clusters": {}
+      },
+      "5": {
+        "device_type": {
+          "name": "ON_OFF_LIGHT_SWITCH",
+          "id": 259
+        },
+        "profile_id": 260,
+        "in_clusters": {
+          "0x0012": {
+            "endpoint_attribute": "multistate_input",
+            "attributes": {},
+            "unsupported_attributes": {}
+          }
+        },
+        "out_clusters": {}
+      },
+      "6": {
+        "device_type": {
+          "name": "ON_OFF_LIGHT_SWITCH",
+          "id": 259
+        },
+        "profile_id": 260,
+        "in_clusters": {
+          "0x0012": {
+            "endpoint_attribute": "multistate_input",
+            "attributes": {},
+            "unsupported_attributes": {}
+          }
+        },
+        "out_clusters": {}
+      }
+    }
+  }
+}
