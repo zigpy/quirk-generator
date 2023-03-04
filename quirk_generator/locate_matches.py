@@ -69,7 +69,7 @@ def locate_quirk_matches() -> List[str]:
                 break
 
         if quirk_match:
-            possible_matches.append(quirk.__name__)
+            possible_matches.append(f"{quirk.__module__}.{quirk.__name__}")
             break
 
     return possible_matches
