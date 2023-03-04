@@ -9,4 +9,5 @@
                     {%- for cluster in endpoint["out_clusters"] %}
                     {{cluster}},{% endfor %}
                 ],
-            }{% endfor %}
+            },{% if not loop.last %}
+            {% endif %}{% endfor %}
