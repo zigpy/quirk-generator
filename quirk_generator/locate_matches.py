@@ -1,13 +1,12 @@
 """Locate existing quirks that may match a device diagnostic file from ZHA."""
 
-import json
 from typing import List
 
 import zhaquirks
 import zigpy.quirks as zq
 
 
-def locate_quirk_matches() -> List[str]:
+def locate_quirk_matches(diagnostics_data: dict) -> List[str]:
     zhaquirks.setup()
 
     ALL_QUIRK_CLASSES = []
@@ -21,11 +20,6 @@ def locate_quirk_matches() -> List[str]:
     del quirk, model_quirk_list, manufacturer
 
     possible_matches = []
-
-    with open("../input_files/diagnostics.json") as f:
-        diagnostics_file_data = f.read()
-
-    diagnostics_data = json.loads(diagnostics_file_data)
 
     signature = diagnostics_data.get("data").get("signature")
 

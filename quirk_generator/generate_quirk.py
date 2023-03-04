@@ -1,10 +1,9 @@
 """Generate a quirk using jinja2 templates and device diagnostic data."""
 
-from collections import defaultdict
-import json
 import logging
+from collections import defaultdict
 
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, PackageLoader
 from zigpy.profiles import zha, zll
 from zigpy.zcl import clusters
 
@@ -77,32 +76,29 @@ def process_clusters(data: dict) -> dict:
     return processed_clusters
 
 
-# reading the data from the file
-with open("../input_files/diagnostics.json") as f:
-    diagnostics_file_data = f.read()
+def generate_stub_quirk(diagnostics_data: dict) -> str:
+    """Generate the quirk."""
+    # reading the data from the file
+    env = Environment(loader=PackageLoader("quirk_generator", "templates"))
+    quirk_template = env.get_template("quirk_template.txt")
 
-diagnostics_data = json.loads(diagnostics_file_data)
+    template_data = process_profiles(diagnostics_data.get("data"))
 
-env = Environment(loader=FileSystemLoader("./templates"))
-quirk_template = env.get_template("quirk_template.txt")
+    process_endpoints(template_data)
 
-template_data = process_profiles(diagnostics_data.get("data"))
+    grouped_clusters = defaultdict(list)
+    for cluster in all_clusters:
+        grouped_clusters[cluster.__module__].append(cluster.__name__)
 
-process_endpoints(template_data)
+    for module, classes in grouped_clusters.items():
+        classes.sort()
 
-grouped_clusters = defaultdict(list)
-for cluster in all_clusters:
-    grouped_clusters[cluster.__module__].append(cluster.__name__)
-
-for module, classes in grouped_clusters.items():
-    classes.sort()
-
-template_data["grouped_clusters"] = dict(sorted(grouped_clusters.items()))
-template_data["class_name"] = "".join(
-    filter(
-        str.isalnum,
-        f"{template_data['manufacturer'].title()}{template_data['model'].title()}",
+    template_data["grouped_clusters"] = dict(sorted(grouped_clusters.items()))
+    template_data["class_name"] = "".join(
+        filter(
+            str.isalnum,
+            f"{template_data['manufacturer'].title()}{template_data['model'].title()}",
+        )
     )
-)
 
-print(quirk_template.render(template_data))
+    return quirk_template.render(template_data)
