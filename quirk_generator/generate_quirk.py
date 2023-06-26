@@ -35,9 +35,12 @@ def process_endpoints(data: dict) -> None:
         endpoint["output_clusters"] = process_clusters(endpoint["output_clusters"])
 
 
-def process_profile_id(profile_id: int) -> str | int:
+def process_profile_id(profile_id: str) -> str | int:
     """Process the profile id."""
+    profile_id = int(profile_id, 16)
+
     if profile_id == zha.PROFILE_ID:
+        print("zha.PROFILE_ID")
         return "zha.PROFILE_ID"
     elif profile_id == zll.PROFILE_ID:
         return "zll.PROFILE_ID"
@@ -45,8 +48,11 @@ def process_profile_id(profile_id: int) -> str | int:
         return profile_id
 
 
-def process_device_type(profile_id: int, device_type: int) -> str | int:
+def process_device_type(profile_id: str, device_type: str) -> str | int:
     """Process the device type."""
+    profile_id = int(profile_id, 16)
+    device_type = int(device_type, 16)
+
     if profile_id == zha.PROFILE_ID:
         try:
             return f"zha.DeviceType.{zha.DeviceType(device_type).name}"
