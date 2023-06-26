@@ -1,4 +1,4 @@
-from zigpy.profiles import {% if zha_profile in present_profiles -%}zha{% if present_profiles |length > 1 -%},{% endif %} {% endif %}{% if zll_profile in present_profiles -%}zll{% endif %}
+from zigpy.profiles import {% if zha_profile in present_profiles -%}zha{% if present_profiles |length > 1 -%},{% endif %} {% endif %}{% if zll_profile in present_profiles -%}zll{% if present_profiles |length > 2 -%},{% endif %}{% endif %}{% if zgp_profile in present_profiles -%}zgp{% endif %}
 from zigpy.quirks import CustomDevice
 {% for module, classes in grouped_clusters.items() %}from {{module}} import (
 {% for class in classes %}    {{class}},{% if not loop.last %}

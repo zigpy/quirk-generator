@@ -4,7 +4,7 @@ import logging
 from collections import defaultdict
 
 from jinja2 import Environment, PackageLoader
-from zigpy.profiles import zha, zll
+from zigpy.profiles import zgp, zha, zll
 from zigpy.zcl import clusters
 
 _LOGGER = logging.getLogger(__name__)
@@ -17,10 +17,11 @@ def process_profiles(data: dict) -> dict:
     """Process the profiles in the device signature."""
     profiles = set()
     for endpoint in data["signature"]["endpoints"].values():
-        profiles.add(endpoint["profile_id"])
+        profiles.add(int(endpoint["profile_id"], 16))
     data["present_profiles"] = profiles
     data["zha_profile"] = zha.PROFILE_ID
     data["zll_profile"] = zll.PROFILE_ID
+    data["zgp_profile"] = zgp.PROFILE_ID
     return data
 
 
@@ -43,6 +44,8 @@ def process_profile_id(profile_id: str) -> str | int:
         return "zha.PROFILE_ID"
     elif profile_id == zll.PROFILE_ID:
         return "zll.PROFILE_ID"
+    elif profile_id == zgp.PROFILE_ID:
+        return "zgp.PROFILE_ID"
     else:
         return profile_id
 
@@ -60,6 +63,11 @@ def process_device_type(profile_id: str, device_type: str) -> str | int:
     elif profile_id == zll.PROFILE_ID:
         try:
             return f"zll.DeviceType.{zll.DeviceType(device_type).name}"
+        except ValueError:
+            return device_type
+    elif profile_id == zgp.PROFILE_ID:
+        try:
+            return f"zgp.DeviceType.{zgp.DeviceType(device_type).name}"
         except ValueError:
             return device_type
     else:
