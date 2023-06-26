@@ -2,11 +2,11 @@
                 PROFILE_ID: {{endpoint["profile_id"]}},
                 DEVICE_TYPE: {{endpoint["device_type"]}},
                 INPUT_CLUSTERS: [
-                    {%- for cluster in endpoint["in_clusters"] %}
+                    {%- for cluster in endpoint["input_clusters"] %}
                     {{cluster}},{% endfor %}
                 ],
                 OUTPUT_CLUSTERS: [
-                    {%- for cluster in endpoint["out_clusters"] %}
+                    {%- for cluster in endpoint["output_clusters"] %}
                     {{cluster}},{% endfor %}
                 ],
             },{% if not loop.last %}

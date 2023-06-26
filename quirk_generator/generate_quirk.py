@@ -31,8 +31,8 @@ def process_endpoints(data: dict) -> None:
             endpoint["profile_id"], endpoint["device_type"]
         )
         endpoint["profile_id"] = process_profile_id(endpoint["profile_id"])
-        endpoint["in_clusters"] = process_clusters(endpoint["in_clusters"])
-        endpoint["out_clusters"] = process_clusters(endpoint["out_clusters"])
+        endpoint["input_clusters"] = process_clusters(endpoint["input_clusters"])
+        endpoint["output_clusters"] = process_clusters(endpoint["output_clusters"])
 
 
 def process_profile_id(profile_id: int) -> str | int:

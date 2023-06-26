@@ -44,10 +44,12 @@ def locate_quirk_matches(diagnostics_data: dict) -> List[str]:
                 quirk_match = False
                 break
             endpoint_input_clusters = {
-                int(cluster_id, base=16) for cluster_id in endpoint.get("in_clusters")
+                int(cluster_id, base=16)
+                for cluster_id in endpoint.get("input_clusters")
             }
             endpoint_output_clusters = {
-                int(cluster_id, base=16) for cluster_id in endpoint.get("out_clusters")
+                int(cluster_id, base=16)
+                for cluster_id in endpoint.get("output_clusters")
             }
             quirk_input_clusters = {
                 int(cluster_id) for cluster_id in quirk_endpoint.get("input_clusters")
