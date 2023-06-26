@@ -17,8 +17,8 @@ requires-python = ">=3.10"
 dependencies = [
     "click",
     "jinja2",
-    "zigpy>=0.53.0",
-    "zha-quirks>=0.0.93",
+    "zigpy>=0.56.1",
+    "zha-quirks>=0.0.101",
 ]
 
 [tool.setuptools]
