@@ -40,7 +40,6 @@ def process_profile_id(profile_id: str) -> str | int:
     profile_id = int(profile_id, 16)
 
     if profile_id == zha.PROFILE_ID:
-        print("zha.PROFILE_ID")
         return "zha.PROFILE_ID"
     elif profile_id == zll.PROFILE_ID:
         return "zll.PROFILE_ID"
