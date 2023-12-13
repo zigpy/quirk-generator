@@ -12,6 +12,8 @@ The base for the quirk generator was made by [@dmulcahey](https://github.com/dmu
 $ pip install git+https://github.com/zigpy/quirk-generator.git
 ```
 
+Note: It's planned to add this to PyPi in the future for easier installation.
+
 ## Usage
 
 ### Generate stub quirk
