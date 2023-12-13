@@ -8,11 +8,34 @@ The base for the quirk generator was made by [@dmulcahey](https://github.com/dmu
 
 ## Installation
 
+Make sure you have Python 3.10 or newer installed.
+
+### Virtual environment
+
+If you want to install `quirk-generator` in a virtual environment, you can execute these commands before installing the package. Otherwise, skip to the "Install" section below.
+```console
+python -m venv venv
+source venv/bin/activate
+```
+
+### Install
+
 ```console
 pip install git+https://github.com/zigpy/quirk-generator.git
 ```
 
 Note: It's planned to add this to PyPi in the future for easier installation.
+
+### Updating
+
+Also note that the [`zha-quirks`](https://github.com/zigpy/zha-device-handlers) should be regularly updated to make sure `quirk-generator` can match against the latest quirks. To just upgrade `zha-quirks`, use:
+```console
+pip install zha-quirks --upgrade
+```
+To force a full re-installation of `quirk-generator` and all its dependencies, use:
+```console
+pip install git+https://github.com/zigpy/quirk-generator.git --force-reinstall
+```
 
 ## Usage
 
