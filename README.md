@@ -28,7 +28,7 @@ Note: It's planned to add this to PyPi in the future for easier installation.
 
 ### Updating
 
-Also note that the [`zha-quirks`](https://github.com/zigpy/zha-device-handlers) should be regularly updated to make sure `quirk-generator` can match against the latest quirks. To just upgrade `zha-quirks`, use:
+Also note that [`zha-quirks`](https://github.com/zigpy/zha-device-handlers) should be updated regularly to make sure `quirk-generator` can match against the latest quirks. To just upgrade `zha-quirks`, use:
 ```console
 pip install zha-quirks --upgrade
 ```
