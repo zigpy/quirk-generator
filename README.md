@@ -9,7 +9,7 @@ The base for the quirk generator was made by [@dmulcahey](https://github.com/dmu
 ## Installation
 
 ```console
-$ pip install git+https://github.com/TheJulianJES/quirk-generator.git
+$ pip install git+https://github.com/zigpy/quirk-generator.git
 ```
 
 ## Usage

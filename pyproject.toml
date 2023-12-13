@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "quirk-generator"
 version = "0.0.0"
 description = "Stub quirk generator for zha-quirks"
-urls = {repository = "https://github.com/TheJulianJES/quirk-generator"}
+urls = {repository = "https://github.com/zigpy/quirk-generator"}
 authors = [
     {name = "TheJulianJES", email = "julian.tjj@proton.me"},
     {name = "David F. Mulcahey", email = "david.mulcahey@icloud.com"},
