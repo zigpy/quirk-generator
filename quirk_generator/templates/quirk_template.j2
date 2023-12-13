@@ -1,6 +1,6 @@
 """Quirk for {{manufacturer}} {{model}}."""
 
-{% include "imports_template.txt" %}
+{% include "imports_template.j2" %}
 
 
 class {{class_name}}(CustomDevice):
@@ -9,13 +9,13 @@ class {{class_name}}(CustomDevice):
     signature = {
         MODELS_INFO: [("{{manufacturer}}", "{{model}}")],
         ENDPOINTS: {
-            {% include "endpoints_template.txt" %}
+            {% include "endpoints_template.j2" %}
         },
     }
 
     replacement = {
         ENDPOINTS: {
-            {% include "endpoints_template.txt" %}
+            {% include "endpoints_template.j2" %}
         },
     }
 

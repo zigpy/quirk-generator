@@ -93,7 +93,7 @@ def generate_stub_quirk(diagnostics_data: dict) -> str:
     """Generate the quirk."""
     # reading the data from the file
     env = Environment(loader=PackageLoader("quirk_generator", "templates"))
-    quirk_template = env.get_template("quirk_template.txt")
+    quirk_template = env.get_template("quirk_template.j2")
 
     template_data = process_profiles(diagnostics_data.get("data"))
 
