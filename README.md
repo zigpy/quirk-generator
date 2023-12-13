@@ -9,7 +9,7 @@ The base for the quirk generator was made by [@dmulcahey](https://github.com/dmu
 ## Installation
 
 ```console
-$ pip install git+https://github.com/zigpy/quirk-generator.git
+pip install git+https://github.com/zigpy/quirk-generator.git
 ```
 
 Note: It's planned to add this to PyPi in the future for easier installation.
@@ -22,12 +22,12 @@ If you want to start writing a quirk for a device, you can use the `generate-qui
 
 To generate a quirk from a device signature or a diagnostics file, run:
 ```console
-$ quirk-generator generate-quirk sample_files/diagnostics.json
+quirk-generator generate-quirk sample_files/diagnostics.json
 ```
 
 If you want to save the generated quirk to a file, you can use the `--output` option:
 ```console
-$ quirk-generator generate-quirk sample_files/diagnostics.json --output my_quirk.py
+quirk-generator generate-quirk sample_files/diagnostics.json --output my_quirk.py
 ```
 
 ### Search for matches in existing quirks
@@ -36,5 +36,5 @@ If you have a device signature or a diagnostics file and want to know if existin
 
 To search for possible matches for existing quirks, run:
 ```console
-$ quirk-generator locate-matches sample_files/signature.json
+quirk-generator locate-matches sample_files/signature.json
 ```
