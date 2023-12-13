@@ -25,7 +25,7 @@ dependencies = [
 packages = ["quirk_generator"]
 
 [tool.setuptools.package-data]
-"quirk_generator.templates" = ["**"]
+"*" = ["templates/*.j2"]
 
 [project.scripts]
 quirk-generator = "quirk_generator.cli:cli"
