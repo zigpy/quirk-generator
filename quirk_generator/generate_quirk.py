@@ -36,9 +36,9 @@ def process_endpoints(data: dict) -> None:
         endpoint["output_clusters"] = process_clusters(endpoint["output_clusters"])
 
 
-def process_profile_id(profile_id: str) -> str | int:
+def process_profile_id(profile_id_hex: str) -> str | int:
     """Process the profile id."""
-    profile_id = int(profile_id, 16)
+    profile_id: int = int(profile_id_hex, 16)
 
     if profile_id == zha.PROFILE_ID:
         return "zha.PROFILE_ID"
@@ -50,10 +50,10 @@ def process_profile_id(profile_id: str) -> str | int:
         return profile_id
 
 
-def process_device_type(profile_id: str, device_type: str) -> str | int:
+def process_device_type(profile_id_hex: str, device_type_hex: str) -> str | int:
     """Process the device type."""
-    profile_id = int(profile_id, 16)
-    device_type = int(device_type, 16)
+    profile_id: int = int(profile_id_hex, 16)
+    device_type: int = int(device_type_hex, 16)
 
     if profile_id == zha.PROFILE_ID:
         try:
@@ -74,13 +74,13 @@ def process_device_type(profile_id: str, device_type: str) -> str | int:
         return device_type
 
 
-def process_clusters(data: dict) -> dict:
+def process_clusters(data: dict) -> list[str | int]:
     """Process the clusters in the device signature."""
-    processed_clusters = []
+    processed_clusters: list[str | int] = []
     for cluster_id in data:
-        id = int(cluster_id, 16)
-        if id in clusters.CLUSTERS_BY_ID:
-            cluster = clusters.CLUSTERS_BY_ID[id]
+        cid: int = int(cluster_id, 16)
+        if cid in clusters.CLUSTERS_BY_ID:
+            cluster = clusters.CLUSTERS_BY_ID[cid]
             all_clusters.add(cluster)
             class_name = cluster.__name__
             processed_clusters.append(f"{class_name}.cluster_id")
