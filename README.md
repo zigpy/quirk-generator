@@ -6,6 +6,10 @@ Note: This tool will not generate a full quirk that magically makes your device 
 
 The base for the quirk generator was made by [@dmulcahey](https://github.com/dmulcahey).
 
+### Note
+
+This tool is still work-in-progress. If you have any issues or suggestions, please open an issue.
+
 ## Installation
 
 Make sure you have Python 3.10 or newer installed.
@@ -24,7 +28,7 @@ source venv/bin/activate
 pip install git+https://github.com/zigpy/quirk-generator.git
 ```
 
-Note: It's planned to add this to PyPi in the future for easier installation.
+Note: It's planned to add this to PyPi in the future for easier installation and updating.
 
 ### Updating
 
