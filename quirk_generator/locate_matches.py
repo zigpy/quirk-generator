@@ -72,6 +72,6 @@ def locate_quirk_matches(diagnostics_data: dict) -> List[str]:
 
         if quirk_match:
             possible_matches.append(f"{quirk.__module__}.{quirk.__name__}")
-            break
+            continue
 
     return possible_matches
