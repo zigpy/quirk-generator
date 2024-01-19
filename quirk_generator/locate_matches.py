@@ -40,7 +40,9 @@ def locate_quirk_matches(diagnostics_data: dict) -> List[str]:
             ):
                 quirk_match = False
                 break
-            if quirk_endpoint.get("profile_id") != endpoint.get("profile_id"):
+            if quirk_endpoint.get("profile_id") != int(
+                endpoint.get("profile_id"), base=16
+            ):
                 quirk_match = False
                 break
             endpoint_input_clusters = {
