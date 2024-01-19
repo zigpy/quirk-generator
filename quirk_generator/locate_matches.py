@@ -35,6 +35,7 @@ def locate_quirk_matches(diagnostics_data: dict) -> List[str]:
             continue
 
         quirk_match = True
+        strict_match = True
         for quirk_endpoint_id, quirk_endpoint in quirk.signature.get(
             "endpoints"
         ).items():
@@ -70,8 +71,16 @@ def locate_quirk_matches(diagnostics_data: dict) -> List[str]:
                 quirk_match = False
                 break
 
+            if (
+                endpoint_input_clusters != quirk_input_clusters
+                or endpoint_output_clusters != quirk_output_clusters
+            ):
+                strict_match = False
+
         if quirk_match:
-            possible_matches.append(f"{quirk.__module__}.{quirk.__name__}")
+            possible_matches.append(
+                f"{quirk.__module__}.{quirk.__name__} (strict:{strict_match})"
+            )
             continue
 
     return possible_matches
