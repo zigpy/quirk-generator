@@ -27,7 +27,11 @@ def locate_quirk_matches(diagnostics_data: dict) -> List[str]:
         sig_ep_ids = {int(id) for id in signature.get("endpoints").keys()}
         quirk_ep_ids = {int(id) for id in quirk.signature.get("endpoints").keys()}
 
-        if not sig_ep_ids.issubset(quirk_ep_ids):
+        # XXX: this was `not sig_ep_ids.issubset(quirk_ep_ids)` before,
+        # but that breaks with having more endpoints in the quirk than in the signature
+        # we're comparing to, and we likely want to stay strict for now
+        # regarding the endpoint ids matching?
+        if sig_ep_ids != quirk_ep_ids:
             continue
 
         quirk_match = True
