@@ -1,8 +1,12 @@
 # Quirk Generator for [`zha-quirks`](https://github.com/zigpy/zha-device-handlers)
 
-This is a tool to generate stub quirks for a specific devices using their device signature or a diagnostics file.
+This is a tool to generate stub quirks (v1) for specific devices using their device signature or a diagnostics file.
 
-Note: This tool will not generate a full quirk that magically makes your device work. It will only generate a stub quirk that you can use as a base for your own quirk.
+> [!NOTE]  
+> This tool will not generate a full quirk that magically makes your device work. It will only generate a stub quirk that you can use as a base for your own quirk.
+
+> [!WARNING]  
+> This tool generates old-style v1 quirks with the full device signature. A generator is not necessary for new v2 quirks, as they no longer need the complete device signature. You can find information on how to create v2 quirks in the [quirks repo](https://github.com/zigpy/zha-device-handlers).
 
 The base for the quirk generator was made by [@dmulcahey](https://github.com/dmulcahey).
 
